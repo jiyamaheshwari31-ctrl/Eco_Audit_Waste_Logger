@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>EcoAudit — Analytics</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    .analytics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+      max-width: 1100px;
+      margin: 28px auto;
+      padding: 0 20px;
+    }
+    .stat-box {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      text-align: center;
+      border-top: 4px solid #52b788;
+    }
+    .stat-box .number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #2d6a4f;
+    }
+    .stat-box .label {
+      font-size: 0.82rem;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 4px;
+    }
+    .charts-section {
+      max-width: 1100px;
+      margin: 0 auto 48px;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .chart-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    .chart-card img { width: 100%; border-radius: 8px; }
+    .chart-card.full { grid-column: span 2; }
+    @media(max-width: 760px){
+      .charts-section { grid-template-columns: 1fr; }
+      .chart-card.full { grid-column: span 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">🌿 EcoAudit</div>
+    <p class="tagline">Analytics Dashboard</p>
+  </header>
+
+  {% if no_data %}
+    <p style="text-align:center; margin-top:60px; color:#6b7280;">
+      No data yet — submit some logs first!
+    </p>
+  {% else %}
+
+  <div class="analytics-grid">
+    <div class="stat-box">
+      <div class="number">{{ stats.total_entries }}</div>
+      <div class="label">Total Logs</div>
+    </div>
+    <div class="stat-box">
+      <div class="number">{{ stats.total_weight }} kg</div>
+      <div class="label">Total Waste Logged</div>
+    </div>
+    <div class="stat-box">
+      <div class="number">{{ stats.avg_weight }} kg</div>
+      <div class="label">Avg Weight per Log</div>
+    </div>
+    <div class="stat-box">
+      <div class="number">{{ stats.most_common }}</div>
+      <div class="label">Most Logged Category</div>
+    </div>
+    <div class="stat-box">
+      <div class="number">{{ stats.compostable_pct }}%</div>
+      <div class="label">Compostable Waste</div>
+    </div>
+  </div>
+
+<div class="charts-section">
+    <div class="chart-card">
+      <img src="{{ url_for('static', filename='charts/chart_bar.png') }}" alt="Bar Chart"/>
+    </div>
+    <div class="chart-card">
+      <img src="{{ url_for('static', filename='charts/chart_pie.png') }}" alt="Pie Chart"/>
+    </div>
+    <div class="chart-card full">
+      <img src="{{ url_for('static', filename='charts/chart_line.png') }}" alt="Line Chart"/>
+    </div>
+    {% if action_chart_exists %}
+    <div class="chart-card">
+      <img src="{{ url_for('static', filename='charts/chart_actions.png') }}" alt="Disposal Actions"/>
+    </div>
+    {% endif %}
+  </div>
+
+  {% endif %}
+
+</body>
+</html>

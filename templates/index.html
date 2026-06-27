@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EcoAudit — Smart Community Waste Logger</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+</head>
+<body>
+
+  <header>
+    <div class="logo"><b>🌿 EcoAudit</b></div>
+    <p class="tagline">Smart Community Waste Logger · VIT Chennai</p>
+     <a href="/analytics" style="margin-left:auto; color:white; font-size:0.85rem; 
+     text-decoration:none; background:rgba(255,255,255,0.2); 
+     padding:6px 14px; border-radius:999px;">
+    📊 Analytics
+  </a>
+  </header>
+
+  <section class="stats-strip" id="statsStrip">
+    <div class="stat-pill" id="statLoading">Loading totals…</div>
+  </section>
+
+  <main>
+
+    <section class="card form-card">
+      <h2>Log Waste Disposal</h2>
+
+      <label>Waste Category</label>
+      <select id="category">
+        <option value="">— select —</option>
+        <option value="Plastic">♻️  Plastic</option>
+        <option value="E-Waste">🖥️  E-Waste</option>
+        <option value="Organic">🌱  Organic</option>
+        <option value="Glass">🪟  Glass</option>
+        <option value="Metal">🔩  Metal</option>
+        <option value="Paper">📄  Paper</option>
+      </select>
+
+      <label>Weight (kg)</label>
+      <input type="number" id="weight" placeholder="e.g. 2.5" min="0.1" step="0.1"/>
+
+      <div class="geo-box" id="geoBox">
+        <span id="geoStatus">📍 Location will be captured on submit</span>
+      </div>
+
+      <button id="submitBtn" onclick="submitLog()">Submit Log</button>
+      <div id="formMsg" class="form-msg"></div>
+    </section>
+
+<section class="card result-card" id="resultCard" style="display:none;">
+  
+  <div id="resultBadge" class="result-badge"></div>
+  <h2 id="resultTitle"></h2>
+  <p id="resultIdea" class="result-idea"></p>
+
+  <div class="result-stat">
+    <span>💡</span>
+    <p id="resultBenefit"></p>
+  </div>
+
+  <div class="result-action" id="resultAction"></div>
+
+  <div id="terracottaBox" class="terracotta-box" style="display:none;">
+    🏺 <strong>Terracotta Pot Composting Recommended!</strong><br/>
+    <small>This waste is ideal for composting in a terracotta pot at home. 
+    It's cheap, odour-free, and produces compost in 30 days.</small>
+  </div>
+
+  <div class="payment-box">
+    <div class="action-buttons">
+      <h3>What will you do with this waste?</h3>
+      <p class="action-sub">Select how you'll dispose it — this helps us track community impact</p>
+
+      <div class="action-btn-row">
+        <button class="action-btn drop-btn" onclick="droppedAtPoint()">
+          📍 Drop at Nearest Point
+        </button>
+        <button class="action-btn pickup-btn" onclick="bookedPickup()">
+          🚪 Book Doorstep Pickup
+        </button>
+      </div>
+    </div>
+
+    <div class="donation-corner">
+      <p class="💸Donate-label">💚 Feel like contributing?</p>
+      <div class="qr-wrap">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=UPI://pay?pa=ecoaudit@okaxis&pn=EcoAudit&am=10&cu=INR"
+            alt="Donate" class="qr-img-small"/>
+      </div>
+      <p class="qr-label">Scan to donate · any amount</p>
+      <button class="pay-done-btn-small" onclick="donated()">✅ I've Donated</button>
+    </div>
+    </div>
+
+</section>
+
+    <section class="card map-card">
+      <h2>Disposal Map</h2>
+      <div id="map"></div>
+    </section>
+
+  </main>
+
+  <section class="feed-section">
+    <h2>All Waste Logs</h2>
+    <div id="feed" class="feed-grid">
+      <p class="loading-text">Fetching logs…</p>
+    </div>
+  </section>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
