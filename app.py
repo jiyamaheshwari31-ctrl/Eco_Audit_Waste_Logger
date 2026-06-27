@@ -14,7 +14,7 @@ import os
 db={
     "host": "localhost",
     "user": "root",          
-    "password": "jIyA@378",  
+    "password": "password",  
     "database": "ecoAudit"
 }
 def get_db():
