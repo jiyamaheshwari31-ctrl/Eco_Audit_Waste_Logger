@@ -97,7 +97,7 @@ Open your browser at **http://127.0.0.1:5000**
 ## About
 
 Built by **Jiya Maheshwari**.
-I knew Python and MySQL before this task. I learned Flask, REST APIs, the Browser Geolocation API, Leaflet.js, and pandas/matplotlib integration specifically to complete this.
+I knew Python, pandas/matplotlib integration and MySQL before this task. I learned Flask, REST APIs, the Browser Geolocation API and Leaflet.js specifically to complete this.
 
 
 ## Requirements
