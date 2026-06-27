@@ -12,10 +12,10 @@ import matplotlib.pyplot as plt
 import os
 
 db={
-    "host": "localhost",
+    "host": "mysql.railway.internal",
     "user": "root",          
-    "password": "password",  
-    "database": "ecoAudit"
+    "password": "PUJDFLftXCbQkqbxawCZbxHKiJKCdspU",  
+    "database": "railway"
 }
 def get_db():
     connection=mysql.connector.connect(**db)
