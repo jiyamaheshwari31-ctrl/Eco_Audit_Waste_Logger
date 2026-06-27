@@ -3,10 +3,10 @@
 A full-stack web application where community members can log disposed waste with **automatic GPS validation** to prevent fraudulent entries, get real-time disposal guidance, and collectively track environmental impact.
 
 
-## 🚀 Live Demo
+## Live Demo
 🔗 [Deployed Link](#) 
 
-## 💡 What It Does
+## What It Does
 
 A user visits EcoAudit and:
 1. Selects a waste category and enters weight
