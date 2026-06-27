@@ -25,12 +25,12 @@ A user visits EcoAudit and:
 
 ## Tech Stack
 
-Backend: Python + Flask 
-Database: MySQL
-Frontend: HTML5 / CSS3 / Vanilla JavaScript
-Map: Leaflet.js + OpenStreetMap
-Data Analysis: pandas + matplotlib
-Geolocation: Browser Native Geolocation API
+1. Backend: Python + Flask 
+2. Database: MySQL
+3. Frontend: HTML5 / CSS3 / Vanilla JavaScript
+4. Map: Leaflet.js + OpenStreetMap
+5. Data Analysis: pandas + matplotlib
+6. Geolocation: Browser Native Geolocation API
 
 ### Additional Features
 - Auto waste classification — Composting / Recycling / Landfill logic in Python
