@@ -47,7 +47,7 @@ A user visits EcoAudit and:
 ### 1. Clone the repository
 ```bash
 git clone https://github.com/jiyamaheshwari31-ctrl/Eco_Audit_Waste_Logger.git
-cd ecoaudit
+cd Eco_Audit_Waste_Logger
 ```
 
 ### 2. Install dependencies
