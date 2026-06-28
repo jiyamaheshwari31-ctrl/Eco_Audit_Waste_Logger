@@ -14,7 +14,7 @@ import os
 db={
     "host": os.environ.get("sql12.freesqldatabase.com"),
     "user": os.environ.get("sql12831760"),
-    "password": os.environ.get("Please wait"),
+    "password": os.environ.get("IrkYmjwPyE"),
     "database": os.environ.get("sql12831760")
 }
 def get_db():
