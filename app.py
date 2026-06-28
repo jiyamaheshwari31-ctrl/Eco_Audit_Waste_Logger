@@ -12,10 +12,10 @@ import matplotlib.pyplot as plt
 import os
 
 db={
-    "host": os.environ.get("sql12.freesqldatabase.com"),
-    "user": os.environ.get("sql12831760"),
-    "password": os.environ.get("IrkYmjwPyE"),
-    "database": os.environ.get("sql12831760")
+    "host": os.environ.get("DB_HOST"),
+    "user": os.environ.get("DB_USER"),
+    "password": os.environ.get("DB_PASSWORD"),
+    "database": os.environ.get("DB_NAME")
 }
 def get_db():
     connection=mysql.connector.connect(**db)
